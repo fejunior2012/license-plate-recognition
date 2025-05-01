@@ -6,7 +6,7 @@ try:
     from PIL import Image
 except ImportError:
     import Image
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'E:\GitHub\license-plate-recognition\Tesseract-OCR\tesseract.exe'
 
 
 # get grayscale image

@@ -13,7 +13,7 @@ def apply_filter(plate):
 def scan_plate(image):
     custom_config = r'-c tessedit_char_blacklist=abcdefghijklmnopqrstuvwxyz/ --psm 6'
     plate_number = (pytesseract.image_to_string(image, config=custom_config))
-    return plate_number[:-2]
+    return plate_number[:-1]
 
 
 def validate_plate(plate_number, authorized_plate):
@@ -22,22 +22,21 @@ def validate_plate(plate_number, authorized_plate):
     else:
         return 'NOT AUTHORIZED'
 
-
 def main():
     authorized_plate = ['FUN-0972', 'BRA2E19']
 
     images = [
-        '../images/placa1.jpg',
-        '../images/placa2.jpg',
-        '../images/placa3.jpg',
-        '../images/placa4.jpg'
+        './images/placa1.jpg',
+        './images/placa2.jpg',
+        './images/placa3.jpg',
+        './images/placa4.jpg'
     ]
 
     plates = []
     plates_filter_applied = []
     plates_numbers = []
     data = []
-    _, _, filenames = next(walk('../images/'))
+    _, _, filenames = next(walk('./images/'))
 
     # Append the files name to list data
     for i in range(len(filenames)):
